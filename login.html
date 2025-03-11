@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: rgba(29, 109, 29, 0.593);
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+            text-align: center;
+        }
+        .login{
+           justify-content: center;
+            text-align: center;
+            width: 250px;
+            height: 300px;
+            box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.575);
+            
+            background-color: rgba(0, 0, 0, 0.467);
+            padding: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            
+            
+        }
+        legend{
+            margin-top: 15px;
+        }
+        .details{
+           
+            align-items: center;
+            
+        }
+      input{
+        display: flex;
+        margin: 20px 37px;
+        padding: 7px 2px;
+        width: 170px;
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.333);
+       
+      }
+      button{
+        width: 60px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        background-color: rgba(19, 74, 168, 0.622);
+        cursor: pointer;
+        border-radius: 8px;
+        box-shadow: none;
+        text-shadow: none;
+      }
+      button :hover{
+        background-color: rgba(0, 170, 255, 0.771);
+        
+      }
+      a{
+        text-decoration: none;
+      }
+      header{
+        display: flex;
+        border: 2px solid;
+        background-color: rgba(0, 0, 0, 0.467);
+
+
+
+       
+
+      }
+      header h1{
+        font-weight: 600;
+        font-style: normal;
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        margin-left: 45px;
+      }
+      header img{
+        border: solid 2px black;
+        height: auto;
+        width: 70px;
+      }
+      @media screen and (max-width: 600px){
+       
+        button:hover{
+            background-color: rgba(11, 69, 11, 0.463);
+        }
+      }
+     
+    </style>
+</head>
+<body>
+    <header> <img src="images/IMG_20250311_171745.jpg" height="52px" width="50px">
+    <h1>AGRI MACHINE HUB</h1>
+    </header>
+   
+    <div class="login">
+        <form action="#" class="details">
+            <legend>Login</legend>
+            <input type="text" name="username" id="username" placeholder="Username" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <button type="submit" onclick="validateLogin()">Login</button>
+            <p id="message"></p>
+            <p>Don't have Account? <br><a href="#">Sign Up</a></p>
+        </form>
+    </div>
+
+  <script>
+    // Predefined username and password
+    const validUsername = "agri_machine_hub";
+    const validPassword = "agrimachinehub";
+
+    // Function to validate login
+    function validateLogin() {
+      const enteredUsername = document.getElementById("username").value.trim();
+      const enteredPassword = document.getElementById("password").value.trim();
+      const message = document.getElementById("message");
+
+      if (enteredUsername === validUsername && enteredPassword === validPassword) {
+        sessionStorage.setItem("isLoggedIn", "true");
+        message.textContent = "Login successful!";
+        message.className = "success";
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 2000);
+      } else {
+        message.textContent = "Invalid username or password. Please try again.";
+        message.className = "error";
+      }
+    }
+  </script>
+</body>
+</html>

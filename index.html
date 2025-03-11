@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seamless Two-Color Background</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/cb6393663b.js" crossorigin="anonymous"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: rgb(24, 53, 24);
+    
+    }
+
+   
+    .semicircle {
+      position:absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%; 
+      background-color: orange;
+      border-bottom-left-radius: 100%;
+    }
+    .main{
+        text-align: center;
+        font-size: 50px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  height: 100%;
+  
+    }
+    .fb{
+        width: 80%;
+        height: 40%;
+        display: flex;
+        border: solid 2px rgb(255, 255, 255);
+        border-radius: 25px;
+        gap: 3px;
+        margin: 10px;
+        text-align: center;
+        justify-content: space-around;
+        background-color: rgba(68, 141, 68, 0.4);
+        size: 18px;
+        font-size: 18px;
+       
+    }
+    .fb a{
+        text-decoration: none;
+        color: rgb(255, 166, 0);
+    }
+    .fb:hover{
+        background-color: rgb(145, 255, 145);
+       
+
+    }
+    .fb:active{
+        animation-name: shrink;
+        animation-duration: 0.8s;
+
+    }
+    .fb:hover{
+        animation-name: grow2;
+        animation-duration: 0.8s;
+    }
+    #fbi{
+        color: orange;
+        display: inline;
+        align-items: center;
+        position: relative;
+        margin-top: 260px;
+    
+    }
+    .sector{
+        width: 100%;
+        height: 310px;
+        border: solid 2px;
+        color: orange;
+        justify-content: space-between;
+    }
+    .sector i{
+         color: wheat;
+         padding: 50px;
+         cursor: pointer;
+         size: 0.5em;
+    }
+    .sector i:hover{
+        animation-name: grow;
+        animation-duration: 0.8s;
+    }
+   
+    .logout-button {
+      padding: 10px 20px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .logout-button:hover {
+      background-color: #d32f2f;
+    }
+    footer{
+        font-size: 18px;
+        margin: 5px 5px;
+    }
+    @keyframes grow{
+    50%{transform: scale(1.2, 1.2);}
+    }
+
+    @keyframes shrink{
+       75%{transform: scale(0.7,0.7);}
+    }
+    @keyframes grow2{
+    50%{transform: scale(0.9, 0.9);}
+    }
+   
+
+
+    
+   
+  </style>
+</head>
+<body>
+ 
+   <div class="main">
+  <div class="semicircle">
+    <h3>Deatem</h3>
+    <h3>Apne Sunelvs</h3>
+    <div class="fb fb1">
+       <a href="gender.html"> <p><i class="fa-solid fa-person"></i>
+        <h4>Workers</h4><i class="fa-solid fa-arrow-right-long" id="fbi"></i></p></a>
+    </div>
+    <div class="fb fb1">
+        <a href="workersMachinery.html"> <p><i class="fa-solid fa-tractor"></i>
+         <h4>Machinery</h4><i class="fa-solid fa-arrow-right-long" id="fbi"></i></p></a>
+     </div>
+    <div class="fb fb2">
+       <a href="#"> <p><i class="fa-solid fa-flask"></i>
+        <h4>Fertilizers</h4>
+        <i class="fa-solid fa-arrow-right-long"  id="fbi"></i></p></a>
+    </div>
+    <div class="fb fb3">
+       <a href="#"><p> <i class="fa-solid fa-memory"></i>
+        <h4>Modern Technology</h4>
+        <i class="fa-solid fa-arrow-right-long" id="fbi"></i></p></a>
+    </div>
+    <div class="fb fb4">
+       <a href="#"> <p><i class="fa-solid fa-building-ngo"></i>
+        <h4>Government Schemes</h4><i class="fa-solid fa-arrow-right-long" id="fbi"></i></p></a>
+    </div>
+    <div class="fb fb5">
+       <a href="#"> <p><i class="fa-solid fa-person-military-pointing"></i>
+        <h4>Customer Care Number</h4><i class="fa-solid fa-arrow-right-long" id="fbi"></i></p></a>
+    </div>
+    <div class="sector">
+        <i class="fa-solid fa-house"></i>
+        <i class="fa-solid fa-video"></i>
+        <i class="fa-solid fa-newspaper"></i>
+        <button class="logout-button" onclick="logout()">Logout</button>
+      </div>
+      <footer>&copy; CopyRight Reserved From AMH 2025.</footer>
+  </div>
+  <script>
+    // Check login status
+    if (sessionStorage.getItem("isLoggedIn") !== "true") {
+      window.location.href = "login.html"; // Redirect to login page if not logged in
+    }
+
+    // Logout function
+    function logout() {
+      sessionStorage.removeItem("isLoggedIn"); // Clear login status
+      window.location.href = "login.html"; // Redirect to login page
+    }
+  </script>
+ 
+
+</body>
+</html>
