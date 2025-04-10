@@ -34,6 +34,7 @@
             border: solid 2px black;
             border-radius: 8px;
             padding: 7px;
+            cursor: pointer;
         }
         header{
         display: flex;
@@ -61,17 +62,52 @@
         margin-left: 3px;
 
       }
-      .count button{
-        padding: 5px 5px;
-        background-color: rgb(32, 140, 207);
+      .count .submit{
+        padding: 15px 25px;
+        background-color: rgb(207, 64, 32);
         border: solid 2px white;
         border-radius: 5px;
         cursor: pointer;
+        font-weight: bold;
+        color: white;
+        display: block;
+        margin-top: 15px;
       }
       #a:active{
         background-color: rgb(38, 218, 38);
         color: white;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+      .display{
+        border: 1px solid grey;
+        border-radius: 5px;
+        color: black;
+        padding: 10px 15px;
+        margin: 10px;
+        width: 20px;
+        text-align: center;
+      }
+      .btn{
+        background-color: black;
+        color: wheat;
+        padding: 5px 10px;
+        margin: right 18px; 
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+      
+
+      }
+      .confirm{
+        padding: 10px 15px;
+        margin: 15px;
+        margin-left: 0px;
+        cursor: pointer;
+        background-color: rgb(70, 170, 201);
+        border: none;
+        color: white;
+        border-radius: 2px;
+        box-shadow: 2px 3px 20px rgb(183, 179, 179);
       }
 
     </style>
@@ -82,18 +118,40 @@
         </header>
     <h1>Select the Gender</h1>
     <div class="gender">
-        <a href="#" id="a">Male</a>
+        <button  id="a" class="male" onclick="gender = 'Male';  document.querySelector('.workers').innerHTML = `Select no of ${gender} workers:`">Male</button>
         <a href="#" id="male"><img src="images/male.jpg" alt="Male"></a>
         <a href="#" id="Female"><img src="images/female.jpg" alt="female"></a>
-        <a href="#" id="a">Female</a>
+        <button  id="a" class="female" onclick="gender = 'Female';  document.querySelector('.workers').innerHTML = `Select no of ${gender} workers:`">Female</button>
     </div>
     <div class="count">
-        <h1>No of Workers:</h1>
-        <form action="Supervisor.html">
-        <input type="number" name="count" id="count" required>
-        <button type="submit" >Confirm</button>
-    </form>
+        <h3 class="workers">No of Workers:</h3>
+        <p class="display">0</p>
+        <button class="btn" onclick="count+=1; counter();">+1</button>
+        <button class="btn" onclick="count-=1; counter();">-1</button>
+        <button type="submit" class="submit" onclick=" billCheck();">Generate Bill</button>
+        <p class="receipt"></p>
+        <a href="Supervisor.html"><button class="confirm">Submit</button></a>
     </div>
+    <script>
+       let count = 0;
+       let gender = '';
+       function counter(){
+        if(count >=0 && count<=10){
+        document.querySelector('.display').innerHTML = count;
+        }else{
+          alert("Sorry Ensure that Select Workers Between 1 to 10 Only");
+        }
+       }
+       function billCheck(){
+               if(count == 0 || count<0 || count>10){
+                alert('Please Ensure That Workers in the Range 1-10.');
+               }
+               else if(count > 0 && count<10){
+                alert(`Your Bill is: ${count*500}`);
+                document.querySelector('.receipt').innerHTML = `Your Bill: $${count*500}`;
+               }
+       }
+    </script>
 
 </body>
 </html>
